@@ -22,6 +22,9 @@ require_once "../src/Entities/MachineACafe.php";
 
 
 $machine = new MachineACafe("Senseo");
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +36,7 @@ $machine = new MachineACafe("Senseo");
 </head>
 <body>
     <h1>La machine à café est de la marque : <?= $machine->getMarque() ?></h1>
-    <h2><?= $machine->allumage(true) ?></h2>
+    <h2><?= $machine->allumage() ?></h2>
     <h2><?= $machine->mettreUneDosette() ?></h2>
     <h2><?=  $machine->faireDuCafe() ?></h2>
 </body>

@@ -22,41 +22,55 @@
 class MachineACafe
 {
     private string $marque;
-    private string $cafe;
+    private bool $dosette;
     private bool $enFonction;
 
     public function __construct(string $marque)
     {
         $this->marque =  $marque;
-        $this->cafe =  "";
+        $this->dosette =  false;
         $this->enFonction = false;
     }
 
+
+    // c'est la seule méthode qui modifie une propriété ($this)
+
     public function getMarque(): string
-{
-    return $this->marque;
+    {
+        return $this->marque;
+    }
+
+    public function  allumage(): string
+    {
+        if ($this->enFonction === false) {
+            $this->enFonction = true;
+            return "$this->marque est en fonction";
+        } else {
+            $this->enFonction = false;
+            return "$this->marque s'éteint";
+        }
+    }
+
+
+    public function  mettreUneDosette(): string
+    {
+        if ($this->dosette === false) {
+            $this->dosette = true;
+            return "Je mets une dosette";
+        } else {
+            $this->dosette = false;
+            return "J'enlève la dosette";
+        }
+    }
+
+
+    public function faireDuCafe(): string
+    {
+        if ($this->enFonction === true && $this->dosette === true) {
+            $this->dosette = false;
+            return "Le café est prêt !";
+        } else {
+            return "la machine doit être allumée et mettre une dosette !";
+        }
+    }
 }
-
-public function  allumage( bool $enFonction): string
-{
-    $this->enFonction = $enFonction;
-   return "Senseo est en fonction";
-}
-// c'est la seule méthode qui modifie une propriété ($this)
-
-public function  faireDuCafe(): string
-{
-   return "Je mets une dosette";
-}
-
-public function  mettreUneDosette(): string
-{
-   return "Le café est prêt !";
-}
-
-
-}
-
- ?>
-
-
